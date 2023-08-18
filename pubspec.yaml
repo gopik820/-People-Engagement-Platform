@@ -39,6 +39,7 @@ dependencies:
   firebase_auth: ^4.6.3
   flutter_progress_hud: ^2.0.2
   carousel_slider: ^4.0.0
+  cloud_firestore: ^4.8.4
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +68,7 @@ flutter:
     - assets/images/carousel.jpeg
     - assets/images/conference.png
     - assets/images/artboard.jpeg
+    - assets/images/Teabreak1.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

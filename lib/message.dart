@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:project/chatmain.dart';
 
 late User loggedinUser;
 
@@ -10,6 +12,7 @@ class Message extends StatefulWidget {
 }
 
 class _MessageState extends State<Message> {
+  String searchString = "";
   final _auth = FirebaseAuth.instance;
   final TextEditingController _searchController = TextEditingController();
   int _selectedIndex = 1;
@@ -74,317 +77,196 @@ class _MessageState extends State<Message> {
     }
   }
 
+  void addData() async {
+    FirebaseFirestore.instance.collection('users').add({
+      'name': 'User',
+      'url':
+          'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png',
+      'read': false,
+      'time': DateTime.now(),
+      'message': 'Hey'
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(children: [
-        Padding(
-          // Add padding around the search bar
-          padding: const EdgeInsets.fromLTRB(10, 5, 20, 0),
-          // Use a Material design search bar
-          child: TextField(
-            controller: _searchController,
-            decoration: InputDecoration(
-              contentPadding: EdgeInsets.fromLTRB(0, 0, 10, 0),
+      body: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 10),
+          Padding(
+            // Add padding around the search bar
+            padding: const EdgeInsets.fromLTRB(10, 35, 20, 0),
+            // Use a Material design search bar
+            child: TextField(
+              controller: _searchController,
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.fromLTRB(0, 0, 10, 0),
 
-              hintText: 'Search...',
-              // Add a clear button to the search bar
-              suffixIcon: IconButton(
-                icon: Icon(Icons.clear),
-                onPressed: () => _searchController.clear(),
-              ),
-              // Add a search icon or button to the search bar
-              prefixIcon: IconButton(
-                icon: Icon(Icons.search),
-                onPressed: () {
-                  // Perform the search here
-                },
-              ),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-              icon: IconButton(
-                  icon: const Icon(Icons.supervised_user_circle),
+                hintText: 'Search...',
+                // Add a clear button to the search bar
+                suffixIcon: IconButton(
+                  icon: Icon(Icons.clear),
+                  onPressed: () => _searchController.clear(),
+                ),
+                // Add a search icon or button to the search bar
+                prefixIcon: IconButton(
+                  icon: Icon(Icons.search),
                   onPressed: () {
-                    _auth.signOut();
-                    Navigator.of(context).popUntil(
-                        (route) => route.settings.name == "welcome_screen");
+                    // Perform the search here
+                  },
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+                icon: IconButton(
+                    icon: const Icon(Icons.logout),
+                    onPressed: () {
+                      _auth.signOut();
+                      Navigator.of(context).popUntil(
+                          (route) => route.settings.name == "welcome_screen");
 
-                    //Implement logout functionality
-                  }),
+                      //Implement logout functionality
+                    }),
+              ),
             ),
           ),
-        ),
-        CarouselSlider(
-          items: [
-            Container(
-              margin:
-                  const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
-                image: const DecorationImage(
-                  image: AssetImage("assets/images/carousel.jpeg"),
-                  fit: BoxFit.cover,
+          Padding(
+            padding: const EdgeInsets.only(left: 16, right: 16, top: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                const Text(
+                  "Conversations",
+                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                 ),
-              ),
-            ),
-            Container(
-              margin:
-                  const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
-                image: const DecorationImage(
-                  image: AssetImage("assets/images/carousel.jpeg"),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Container(
-              margin:
-                  const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
-                image: const DecorationImage(
-                  image: AssetImage("assets/images/carousel.jpeg"),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ],
-          options: CarouselOptions(
-            height: 200.0,
-            enlargeCenterPage: true,
-            autoPlay: true,
-            aspectRatio: 16 / 9,
-            autoPlayCurve: Curves.fastOutSlowIn,
-            enableInfiniteScroll: true,
-            autoPlayAnimationDuration: const Duration(milliseconds: 700),
-            viewportFraction: 0.8,
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.all(5.0),
-          child: const Text(
-            "Upcoming Events",
-            style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
-          ),
-        ),
-        CarouselSlider(
-          items: [
-            Container(
-              margin:
-                  const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
-                boxShadow: kElevationToShadow[1],
-                image: const DecorationImage(
-                  image: AssetImage("assets/images/carousel.jpeg"),
-                  fit: BoxFit.cover,
-                ),
-              ),
-              child: Container(
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
-                alignment: Alignment.bottomLeft,
-                child: const Text(
-                  'Lorem ipsum',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-            Container(
-              margin:
-                  const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
-                boxShadow: kElevationToShadow[1],
-                image: const DecorationImage(
-                  image: AssetImage("assets/images/carousel.jpeg"),
-                  fit: BoxFit.cover,
-                ),
-              ),
-              child: Container(
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
-                alignment: Alignment.bottomLeft,
-                child: const Text(
-                  'Lorem ipsum',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-            Container(
-              margin:
-                  const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
-                boxShadow: kElevationToShadow[1],
-                image: const DecorationImage(
-                  image: AssetImage("assets/images/carousel.jpeg"),
-                  fit: BoxFit.cover,
-                ),
-              ),
-              child: Container(
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
-                alignment: Alignment.bottomLeft,
-                child: const Text(
-                  'Lorem ipsum',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-          ],
-          options: CarouselOptions(
-            height: 150.0,
-            enlargeCenterPage: true,
-            aspectRatio: 1.5,
-            autoPlayCurve: Curves.fastOutSlowIn,
-            enableInfiniteScroll: true,
-            autoPlayAnimationDuration: const Duration(milliseconds: 700),
-            viewportFraction: 0.8,
-          ),
-        ),
-        Container(
-            padding: const EdgeInsets.all(5.0),
-            child: PhysicalShape(
-              elevation: 5.0,
-              clipper: ShapeBorderClipper(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-              ),
-              color: const Color.fromARGB(255, 0, 60, 81),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  SizedBox(
-                    height: 150.0,
-                    width: 100.0,
-                    child: Center(
-                      child: Image.asset(
-                        'assets/images/conference.png',
-                        fit: BoxFit.cover,
-                        height: 50, // set your height
-                        width: 70, // and width here
-                      ),
+                Container(
+                  padding: const EdgeInsets.only(
+                      left: 8, right: 8, top: 2, bottom: 2),
+                  height: 30,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: Colors.pink[50],
+                  ),
+                  child: GestureDetector(
+                    onTap: () {
+                      addData();
+                    },
+                    child: const Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.add,
+                          color: Colors.pink,
+                          size: 20,
+                        ),
+                        SizedBox(
+                          width: 2,
+                        ),
+                        Text(
+                          "Add New",
+                          style: TextStyle(
+                              fontSize: 14, fontWeight: FontWeight.bold),
+                        ),
+                      ],
                     ),
                   ),
-                  Column(
-                    children: <Widget>[
-                      const SizedBox(
-                        height: 75.0,
-                        width: 250.0,
-                        child: Center(
-                          child: Text(
-                            'One to one with the stakeholders',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                      ElevatedButton(
-                        onPressed: () {},
-                        // style: ButtonStyle(elevation: MaterialStateProperty(12.0 )),
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 16, 103, 114),
-                            elevation: 12.0,
-                            textStyle: const TextStyle(
-                                color: Color.fromARGB(255, 255, 255, 255))),
-                        child: const Text('Make an appointment',
-                            style: TextStyle(
-                                fontSize: 15,
-                                color: Color.fromARGB(255, 255, 255, 255),
-                                fontWeight: FontWeight.bold)),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            )),
-        Container(
-            padding: const EdgeInsets.all(5.0),
-            child: PhysicalShape(
-              elevation: 5.0,
-              clipper: ShapeBorderClipper(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-              ),
-              color: const Color.fromARGB(255, 35, 31, 32),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  Column(
-                    children: <Widget>[
-                      const SizedBox(
-                        height: 75.0,
-                        width: 250.0,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.max,
+                )
+              ],
+            ),
+          ),
+          const SizedBox(height: 10),
+          Expanded(
+            child: StreamBuilder(
+              stream: FirebaseFirestore.instance
+                  .collection('users')
+                  .orderBy('time')
+                  .snapshots(),
+              builder: (BuildContext context,
+                  AsyncSnapshot<QuerySnapshot> snapshot) {
+                if (!snapshot.hasData) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+
+                return ListView(
+                  children: snapshot.data!.docs.map((document) {
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return Chat();
+                        }));
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.only(
+                            left: 16, right: 16, top: 10, bottom: 10),
+                        child: Row(
                           children: <Widget>[
-                            Text(
-                              'Explore Yourself',
-                              style: TextStyle(
-                                  height: 2,
-                                  color: Colors.white,
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.bold),
+                            Expanded(
+                              child: Row(
+                                children: <Widget>[
+                                  CircleAvatar(
+                                    backgroundImage:
+                                        NetworkImage(document['url']),
+                                    maxRadius: 30,
+                                  ),
+                                  const SizedBox(
+                                    width: 16,
+                                  ),
+                                  Expanded(
+                                    child: Container(
+                                      color: Colors.transparent,
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          Text(
+                                            document['name'],
+                                            style:
+                                                const TextStyle(fontSize: 16),
+                                          ),
+                                          const SizedBox(
+                                            height: 6,
+                                          ),
+                                          Text(
+                                            document['message'],
+                                            style: TextStyle(
+                                                fontSize: 13,
+                                                color: Colors.grey.shade600,
+                                                fontWeight: document['read']
+                                                    ? FontWeight.bold
+                                                    : FontWeight.normal),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                             Text(
-                              '  Every minute is an oppurtunity,here is your next step..',
+                              document['time'].toDate().toString(),
                               style: TextStyle(
-                                  height: 1,
-                                  color: Colors.white,
-                                  fontSize: 10.0,
-                                  fontWeight: FontWeight.normal),
+                                  fontSize: 12,
+                                  fontWeight: document['read']
+                                      ? FontWeight.bold
+                                      : FontWeight.normal),
                             ),
                           ],
                         ),
                       ),
-                      ElevatedButton(
-                        onPressed: () {},
-                        // style: ButtonStyle(elevation: MaterialStateProperty(12.0 )),
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                const Color.fromARGB(255, 0, 151, 172),
-                            elevation: 12.0,
-                            textStyle: const TextStyle(
-                                color: Color.fromARGB(255, 255, 255, 255))),
-                        child: const Text('Choose your path',
-                            style: TextStyle(
-                                fontSize: 15,
-                                color: Color.fromARGB(255, 255, 255, 255),
-                                fontWeight: FontWeight.bold)),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 150.0,
-                    width: 124.0,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0),
-                      child: Image.asset(
-                        'assets/images/artboard.jpeg',
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            )),
-      ]),
+                    );
+                  }).toList(),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(

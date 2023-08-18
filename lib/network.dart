@@ -85,17 +85,17 @@ class _NetworkState extends State<Network> {
           child: TextField(
             controller: _searchController,
             decoration: InputDecoration(
-              contentPadding: EdgeInsets.fromLTRB(0, 0, 10, 0),
+              contentPadding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
 
               hintText: 'Search...',
               // Add a clear button to the search bar
               suffixIcon: IconButton(
-                icon: Icon(Icons.clear),
+                icon: const Icon(Icons.clear),
                 onPressed: () => _searchController.clear(),
               ),
               // Add a search icon or button to the search bar
               prefixIcon: IconButton(
-                icon: Icon(Icons.search),
+                icon: const Icon(Icons.search),
                 onPressed: () {
                   // Perform the search here
                 },
@@ -104,7 +104,7 @@ class _NetworkState extends State<Network> {
                 borderRadius: BorderRadius.circular(20.0),
               ),
               icon: IconButton(
-                  icon: const Icon(Icons.supervised_user_circle),
+                  icon: const Icon(Icons.logout),
                   onPressed: () {
                     _auth.signOut();
                     Navigator.of(context).popUntil(
@@ -115,275 +115,359 @@ class _NetworkState extends State<Network> {
             ),
           ),
         ),
-        CarouselSlider(
-          items: [
-            Container(
-              margin:
-                  const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
-                image: const DecorationImage(
-                  image: AssetImage("assets/images/carousel.jpeg"),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Container(
-              margin:
-                  const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
-                image: const DecorationImage(
-                  image: AssetImage("assets/images/carousel.jpeg"),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Container(
-              margin:
-                  const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
-                image: const DecorationImage(
-                  image: AssetImage("assets/images/carousel.jpeg"),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ],
-          options: CarouselOptions(
-            height: 200.0,
-            enlargeCenterPage: true,
-            autoPlay: true,
-            aspectRatio: 16 / 9,
-            autoPlayCurve: Curves.fastOutSlowIn,
-            enableInfiniteScroll: true,
-            autoPlayAnimationDuration: const Duration(milliseconds: 700),
-            viewportFraction: 0.8,
-          ),
-        ),
+        // Figma Flutter Generator MoremeetleadersWidget - FRAME
         Container(
-          padding: const EdgeInsets.all(5.0),
-          child: const Text(
-            "Upcoming Events",
-            style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
-          ),
-        ),
-        CarouselSlider(
-          items: [
-            Container(
-              margin:
-                  const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
-                boxShadow: kElevationToShadow[1],
-                image: const DecorationImage(
-                  image: AssetImage("assets/images/carousel.jpeg"),
-                  fit: BoxFit.cover,
-                ),
-              ),
-              child: Container(
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
-                alignment: Alignment.bottomLeft,
-                child: const Text(
-                  'Lorem ipsum',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-              ),
+            width: 360,
+            height: 640,
+            decoration: const BoxDecoration(
+              color: Color.fromRGBO(255, 255, 255, 1),
             ),
-            Container(
-              margin:
-                  const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
-                boxShadow: kElevationToShadow[1],
-                image: const DecorationImage(
-                  image: AssetImage("assets/images/carousel.jpeg"),
-                  fit: BoxFit.cover,
-                ),
+            child: Stack(children: <Widget>[
+              Positioned(
+                top: 61,
+                left: 345,
+                child: Container(
+                    width: 218,
+                    height: 176,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/Teabreak1.png'),
+                          fit: BoxFit.fitWidth),
+                    )),
               ),
-              child: Container(
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
-                alignment: Alignment.bottomLeft,
-                child: const Text(
-                  'Lorem ipsum',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-            Container(
-              margin:
-                  const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
-                boxShadow: kElevationToShadow[1],
-                image: const DecorationImage(
-                  image: AssetImage("assets/images/carousel.jpeg"),
-                  fit: BoxFit.cover,
-                ),
-              ),
-              child: Container(
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
-                alignment: Alignment.bottomLeft,
-                child: const Text(
-                  'Lorem ipsum',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-          ],
-          options: CarouselOptions(
-            height: 150.0,
-            enlargeCenterPage: true,
-            aspectRatio: 1.5,
-            autoPlayCurve: Curves.fastOutSlowIn,
-            enableInfiniteScroll: true,
-            autoPlayAnimationDuration: const Duration(milliseconds: 700),
-            viewportFraction: 0.8,
-          ),
-        ),
-        Container(
-            padding: const EdgeInsets.all(5.0),
-            child: PhysicalShape(
-              elevation: 5.0,
-              clipper: ShapeBorderClipper(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-              ),
-              color: const Color.fromARGB(255, 0, 60, 81),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  SizedBox(
-                    height: 150.0,
-                    width: 100.0,
-                    child: Center(
-                      child: Image.asset(
-                        'assets/images/conference.png',
-                        fit: BoxFit.cover,
-                        height: 50, // set your height
-                        width: 70, // and width here
-                      ),
-                    ),
-                  ),
-                  Column(
-                    children: <Widget>[
-                      const SizedBox(
-                        height: 75.0,
-                        width: 250.0,
-                        child: Center(
-                          child: Text(
-                            'One to one with the stakeholders',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                      ElevatedButton(
-                        onPressed: () {},
-                        // style: ButtonStyle(elevation: MaterialStateProperty(12.0 )),
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 16, 103, 114),
-                            elevation: 12.0,
-                            textStyle: const TextStyle(
-                                color: Color.fromARGB(255, 255, 255, 255))),
-                        child: const Text('Make an appointment',
-                            style: TextStyle(
-                                fontSize: 15,
-                                color: Color.fromARGB(255, 255, 255, 255),
-                                fontWeight: FontWeight.bold)),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            )),
-        Container(
-            padding: const EdgeInsets.all(5.0),
-            child: PhysicalShape(
-              elevation: 5.0,
-              clipper: ShapeBorderClipper(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-              ),
-              color: const Color.fromARGB(255, 35, 31, 32),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  Column(
-                    children: <Widget>[
-                      const SizedBox(
-                        height: 75.0,
-                        width: 250.0,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.max,
-                          children: <Widget>[
-                            Text(
-                              'Explore Yourself',
+              const Positioned(
+                  top: 93,
+                  left: 32,
+                  child: Text(
+                    'TeaBreak with Leaders',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        color: Color.fromRGBO(0, 151, 172, 1),
+                        fontFamily: 'Roboto',
+                        fontSize: 32,
+                        letterSpacing:
+                            0 /*percentages not used in flutter. defaulting to zero*/,
+                        fontWeight: FontWeight.normal,
+                        height: 1),
+                  )),
+              Positioned(
+                  top: 265,
+                  left: 32,
+                  child: SizedBox(
+                      width: 294,
+                      height: 210,
+                      child: Stack(children: <Widget>[
+                        Positioned(
+                            top: 40,
+                            left: 0,
+                            child: SizedBox(
+                                width: 294,
+                                height: 29,
+                                child: Stack(children: <Widget>[
+                                  const Positioned(
+                                      top: 7,
+                                      left: 0,
+                                      child: Text(
+                                        'Leader’s ID',
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                            color: Color.fromRGBO(0, 0, 0, 1),
+                                            fontFamily: 'Roboto',
+                                            fontSize: 14,
+                                            letterSpacing:
+                                                0 /*percentages not used in flutter. defaulting to zero*/,
+                                            fontWeight: FontWeight.normal,
+                                            height: 1),
+                                      )),
+                                  Positioned(
+                                      top: 0,
+                                      left: 100,
+                                      child: Container(
+                                          width: 194,
+                                          height: 29,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                const BorderRadius.only(
+                                              topLeft: Radius.circular(5),
+                                              topRight: Radius.circular(5),
+                                              bottomLeft: Radius.circular(5),
+                                              bottomRight: Radius.circular(5),
+                                            ),
+                                            color: const Color.fromRGBO(
+                                                255, 255, 255, 1),
+                                            border: Border.all(
+                                              color: const Color.fromRGBO(
+                                                  0, 0, 0, 1),
+                                              width: 1,
+                                            ),
+                                          ))),
+                                ]))),
+                        Positioned(
+                            top: 0,
+                            left: 0,
+                            child: SizedBox(
+                                width: 294,
+                                height: 29,
+                                child: Stack(children: <Widget>[
+                                  const Positioned(
+                                      top: 7,
+                                      left: 0,
+                                      child: Text(
+                                        'Leader’s Name',
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                            color: Color.fromRGBO(0, 0, 0, 1),
+                                            fontFamily: 'Roboto',
+                                            fontSize: 14,
+                                            letterSpacing:
+                                                0 /*percentages not used in flutter. defaulting to zero*/,
+                                            fontWeight: FontWeight.normal,
+                                            height: 1),
+                                      )),
+                                  Positioned(
+                                      top: 0,
+                                      left: 100,
+                                      child: Container(
+                                          width: 194,
+                                          height: 29,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                const BorderRadius.only(
+                                              topLeft: Radius.circular(5),
+                                              topRight: Radius.circular(5),
+                                              bottomLeft: Radius.circular(5),
+                                              bottomRight: Radius.circular(5),
+                                            ),
+                                            color: const Color.fromRGBO(
+                                                255, 255, 255, 1),
+                                            border: Border.all(
+                                              color: const Color.fromRGBO(
+                                                  0, 0, 0, 1),
+                                              width: 1,
+                                            ),
+                                          ))),
+                                ]))),
+                        Positioned(
+                            top: 87,
+                            left: 1,
+                            child: SizedBox(
+                                width: 293,
+                                height: 29,
+                                child: Stack(children: <Widget>[
+                                  const Positioned(
+                                      top: 7,
+                                      left: 0,
+                                      child: Text(
+                                        'Available Date',
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                            color: Color.fromRGBO(0, 0, 0, 1),
+                                            fontFamily: 'Roboto',
+                                            fontSize: 14,
+                                            letterSpacing:
+                                                0 /*percentages not used in flutter. defaulting to zero*/,
+                                            fontWeight: FontWeight.normal,
+                                            height: 1),
+                                      )),
+                                  Positioned(
+                                      top: 0,
+                                      left: 99,
+                                      child: Container(
+                                          width: 194,
+                                          height: 29,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                const BorderRadius.only(
+                                              topLeft: Radius.circular(5),
+                                              topRight: Radius.circular(5),
+                                              bottomLeft: Radius.circular(5),
+                                              bottomRight: Radius.circular(5),
+                                            ),
+                                            color: const Color.fromRGBO(
+                                                255, 255, 255, 1),
+                                            border: Border.all(
+                                              color: const Color.fromRGBO(
+                                                  0, 0, 0, 1),
+                                              width: 1,
+                                            ),
+                                          ))),
+                                ]))),
+                        Positioned(
+                            top: 134,
+                            left: 0,
+                            child: SizedBox(
+                                width: 294,
+                                height: 29,
+                                child: Stack(children: <Widget>[
+                                  const Positioned(
+                                      top: 7,
+                                      left: 0,
+                                      child: Text(
+                                        'Your Email ID',
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                            color: Color.fromRGBO(0, 0, 0, 1),
+                                            fontFamily: 'Roboto',
+                                            fontSize: 14,
+                                            letterSpacing:
+                                                0 /*percentages not used in flutter. defaulting to zero*/,
+                                            fontWeight: FontWeight.normal,
+                                            height: 1),
+                                      )),
+                                  Positioned(
+                                      top: 0,
+                                      left: 100,
+                                      child: Container(
+                                          width: 194,
+                                          height: 29,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                const BorderRadius.only(
+                                              topLeft: Radius.circular(5),
+                                              topRight: Radius.circular(5),
+                                              bottomLeft: Radius.circular(5),
+                                              bottomRight: Radius.circular(5),
+                                            ),
+                                            color: const Color.fromRGBO(
+                                                255, 255, 255, 1),
+                                            border: Border.all(
+                                              color: const Color.fromRGBO(
+                                                  0, 0, 0, 1),
+                                              width: 1,
+                                            ),
+                                          ))),
+                                ]))),
+                        Positioned(
+                            top: 181,
+                            left: 0,
+                            child: SizedBox(
+                                width: 294,
+                                height: 29,
+                                child: Stack(children: <Widget>[
+                                  const Positioned(
+                                      top: 7,
+                                      left: 0,
+                                      child: Text(
+                                        'Phone No.',
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                            color: Color.fromRGBO(0, 0, 0, 1),
+                                            fontFamily: 'Roboto',
+                                            fontSize: 14,
+                                            letterSpacing:
+                                                0 /*percentages not used in flutter. defaulting to zero*/,
+                                            fontWeight: FontWeight.normal,
+                                            height: 1),
+                                      )),
+                                  Positioned(
+                                      top: 0,
+                                      left: 100,
+                                      child: Container(
+                                          width: 194,
+                                          height: 29,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                const BorderRadius.only(
+                                              topLeft: Radius.circular(5),
+                                              topRight: Radius.circular(5),
+                                              bottomLeft: Radius.circular(5),
+                                              bottomRight: Radius.circular(5),
+                                            ),
+                                            color: const Color.fromRGBO(
+                                                255, 255, 255, 1),
+                                            border: Border.all(
+                                              color: const Color.fromRGBO(
+                                                  0, 0, 0, 1),
+                                              width: 1,
+                                            ),
+                                          ))),
+                                ]))),
+                      ]))),
+              Positioned(
+                  top: 498,
+                  left: 133,
+                  child: SizedBox(
+                      width: 95,
+                      height: 30,
+                      child: Stack(children: <Widget>[
+                        Positioned(
+                            top: 0,
+                            left: 0,
+                            child: Container(
+                                width: 95,
+                                height: 30,
+                                decoration: const BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(4),
+                                    topRight: Radius.circular(4),
+                                    bottomLeft: Radius.circular(4),
+                                    bottomRight: Radius.circular(4),
+                                  ),
+                                  color: Color.fromRGBO(0, 151, 172, 1),
+                                ))),
+                        const Positioned(
+                            top: 7,
+                            left: 24,
+                            child: Text(
+                              'Submit',
+                              textAlign: TextAlign.left,
                               style: TextStyle(
-                                  height: 2,
-                                  color: Colors.white,
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              '  Every minute is an oppurtunity,here is your next step..',
-                              style: TextStyle(
-                                  height: 1,
-                                  color: Colors.white,
-                                  fontSize: 10.0,
-                                  fontWeight: FontWeight.normal),
-                            ),
-                          ],
-                        ),
-                      ),
-                      ElevatedButton(
-                        onPressed: () {},
-                        // style: ButtonStyle(elevation: MaterialStateProperty(12.0 )),
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                const Color.fromARGB(255, 0, 151, 172),
-                            elevation: 12.0,
-                            textStyle: const TextStyle(
-                                color: Color.fromARGB(255, 255, 255, 255))),
-                        child: const Text('Choose your path',
-                            style: TextStyle(
-                                fontSize: 15,
-                                color: Color.fromARGB(255, 255, 255, 255),
-                                fontWeight: FontWeight.bold)),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 150.0,
-                    width: 124.0,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0),
-                      child: Image.asset(
-                        'assets/images/artboard.jpeg',
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            )),
+                                  color: Color.fromRGBO(255, 255, 255, 1),
+                                  fontFamily: 'Roboto',
+                                  fontSize: 14,
+                                  letterSpacing:
+                                      0 /*percentages not used in flutter. defaulting to zero*/,
+                                  fontWeight: FontWeight.normal,
+                                  height: 1),
+                            )),
+                      ]))),
+              Positioned(
+                  top: 588,
+                  left: 46,
+                  child: SizedBox(
+                      width: 268.23809814453125,
+                      height: 40,
+                      child: Stack(children: <Widget>[
+                        const Positioned(
+                            top: 2,
+                            left: 0,
+                            child: SizedBox(
+                                width: 31.839168548583984,
+                                height: 38,
+                                child: Stack(children: <Widget>[]))),
+                        Positioned(
+                            top: 0,
+                            left: 143,
+                            child: SizedBox(
+                                width: 43,
+                                height: 38,
+                                child: Stack(children: <Widget>[
+                                  Positioned(
+                                      top: 0,
+                                      left: 9,
+                                      child: SizedBox(
+                                          width: 26,
+                                          height: 26,
+                                          child: Stack(children: <Widget>[
+                                            Positioned(
+                                                top: 0,
+                                                left: 0,
+                                                child: Container(
+                                                    width: 26,
+                                                    height: 26,
+                                                    decoration:
+                                                        const BoxDecoration(
+                                                      color: Color.fromRGBO(
+                                                          255, 255, 255, 1),
+                                                      borderRadius:
+                                                          BorderRadius.all(
+                                                              Radius.elliptical(
+                                                                  26, 26)),
+                                                    ))),
+                                          ]))),
+                                ]))),
+                      ]))),
+            ]))
       ]),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[

@@ -104,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 borderRadius: BorderRadius.circular(20.0),
               ),
               icon: IconButton(
-                  icon: const Icon(Icons.supervised_user_circle),
+                  icon: const Icon(Icons.logout),
                   onPressed: () {
                     _auth.signOut();
                     Navigator.of(context).popUntil(

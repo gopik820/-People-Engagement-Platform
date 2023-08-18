@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:project/discover.dart';
+import 'chatmain.dart';
 import 'message.dart';
 import 'network.dart';
 import 'welcome_screen.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         'discover': (context) => Discover(),
         'message': (context) => Message(),
         'network': (context) => Network(),
+        'chatmain': (context) => Chat(),
       },
     );
   }
