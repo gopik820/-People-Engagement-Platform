@@ -126,18 +126,18 @@ The Discover section offers a space for users to explore new content or opportun
 
 ## 4.Screenshots
 
-![Landing Page](project/screenshot/screenshot1.jpg)
+![Landing Page](screenshot/screenshot1.jpg)
 
-![Login Page](project/screenshot/screenshot2.jpg)
+![Login Page](screenshot/screenshot2.jpg)
 
-![Registeration Page](project/screenshot/screenshot3.jpg)
+![Registeration Page](screenshot/screenshot3.jpg)
 
-![Home Page](project/screenshot/screenshot4.jpg)
+![Home Page](screenshot/screenshot4.jpg)
 
-![Message Page](project/screenshot/screenshot5.jpg)
+![Message Page](screenshot/screenshot5.jpg)
 
-![Individual Message Page](project/screenshot/screenshot6.jpg)
+![Individual Message Page](screenshot/screenshot6.jpg)
 
-![Discover Page](project/screenshot/screenshot7.jpg)
+![Discover Page](screenshot/screenshot7.jpg)
 
-![Network Page](project/screenshot/screenshot8.jpg)
+![Network Page](screenshot/screenshot8.jpg)
