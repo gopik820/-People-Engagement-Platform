@@ -13,26 +13,6 @@ class _DiscoverState extends State<Discover> {
   final _auth = FirebaseAuth.instance;
   final TextEditingController _searchController = TextEditingController();
   int _selectedIndex = 2;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 3: Settings',
-      style: optionStyle,
-    ),
-  ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -57,6 +37,7 @@ class _DiscoverState extends State<Discover> {
     });
   }
 
+  @override
   void initState() {
     super.initState();
     getCurrentUser();
@@ -85,17 +66,17 @@ class _DiscoverState extends State<Discover> {
           child: TextField(
             controller: _searchController,
             decoration: InputDecoration(
-              contentPadding: EdgeInsets.fromLTRB(0, 0, 10, 0),
+              contentPadding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
 
               hintText: 'Search...',
               // Add a clear button to the search bar
               suffixIcon: IconButton(
-                icon: Icon(Icons.clear),
+                icon: const Icon(Icons.clear),
                 onPressed: () => _searchController.clear(),
               ),
               // Add a search icon or button to the search bar
               prefixIcon: IconButton(
-                icon: Icon(Icons.search),
+                icon: const Icon(Icons.search),
                 onPressed: () {
                   // Perform the search here
                 },

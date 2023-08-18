@@ -91,7 +91,7 @@ The app should now build and launch on your connected device or emulator. You'll
    - Enable the authentication methods you want to use (Email/Password, Google, etc.).
    - Follow the provided instructions to configure each authentication method.
 
-## Using the App
+## 3.Using the App
     
 ### Overview of the features
 
@@ -122,3 +122,22 @@ The Network section helps users connect with other users within the app. It migh
 #### Discover
 
 The Discover section offers a space for users to explore new content or opportunities. This might include suggested connections, trending topics, or recommended content based on user interests.
+
+
+## 4.Screenshots
+
+![Landing Page](project/screenshot/screenshot1.jpg)
+
+![Login Page](project/screenshot/screenshot2.jpg)
+
+![Registeration Page](project/screenshot/screenshot3.jpg)
+
+![Home Page](project/screenshot/screenshot4.jpg)
+
+![Message Page](project/screenshot/screenshot5.jpg)
+
+![Individual Message Page](project/screenshot/screenshot6.jpg)
+
+![Discover Page](project/screenshot/screenshot7.jpg)
+
+![Network Page](project/screenshot/screenshot8.jpg)
