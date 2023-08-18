@@ -1,25 +1,25 @@
 # People-Engagement-Platform User Documentation
+
 Welcome to the user documentation for Protype for People-Engagement-Platform! This guide will help you get started with using our app and making the most out of its features.
 
 # Table of Contents
+
 - Introduction
 - Getting Started
-    - Installation
-    - Account Setup
+  - Installation
+  - Account Setup
 - Using the App
-    - Overview of the features
-
-
+  - Overview of the features
 
 ## 1. Introduction
-People-Engagement-Platform is a mobile application developed using the Flutter framework. The People Engagement Platform is a comprehensive software solution designed to enhance employee engagement, collaboration, and communication within organizations. It provides a digital environment where employees can connect, interact, and stay informed, leading to improved productivity, job satisfaction, and overall organizational success.
 
+People-Engagement-Platform is a mobile application developed using the Flutter framework. The People Engagement Platform is a comprehensive software solution designed to enhance employee engagement, collaboration, and communication within organizations. It provides a digital environment where employees can connect, interact, and stay informed, leading to improved productivity, job satisfaction, and overall organizational success.
 
 ## 2. Getting Started
 
 ### Installation
 
-------
+---
 
 Before you begin, ensure you have the following prerequisites:
 
@@ -40,17 +40,13 @@ Before you begin, ensure you have the following prerequisites:
 ##### Android Studio:
 
 1. Install [Android Studio](https://developer.android.com/studio) if not already installed.
-   
 2. Install the Flutter and Dart plugins from the plugin marketplace.
-   
 3. Restart Android Studio to apply the changes.
 
 ##### Visual Studio Code:
 
 1. Install [Visual Studio Code](https://code.visualstudio.com/) if not already installed.
-   
 2. Install the Flutter and Dart extensions from the VS Code marketplace.
-   
 3. Restart VS Code to apply the changes.
 
 #### 3. Verify Installation
@@ -62,6 +58,7 @@ flutter doctor
 ```
 
 #### 4. Run the App
+
 Clone or download the Flutter app's source code from a Git repository.
 
 Navigate to the app's directory in the terminal:
@@ -78,12 +75,14 @@ Run the app using the following command:
 flutter run
 ```
 
-
 The app should now build and launch on your connected device or emulator. You'll see the app's output and any debugging information in the terminal.
 
------
+---
+
 ### Account Setup using Firebase
-------
+
+---
+
 1. Create a new project in the [Firebase Console](https://console.firebase.google.com/) if you haven't already.
 
 2. Set up Firebase Authentication for your project:
@@ -92,7 +91,7 @@ The app should now build and launch on your connected device or emulator. You'll
    - Follow the provided instructions to configure each authentication method.
 
 ## 3.Using the App
-    
+
 ### Overview of the features
 
 #### Landing Page
@@ -123,21 +122,14 @@ The Network section helps users connect with other users within the app. It migh
 
 The Discover section offers a space for users to explore new content or opportunities. This might include suggested connections, trending topics, or recommended content based on user interests.
 
-
 ## 4.Screenshots
 
-![Landing Page](screenshot/screenshot1.jpg)
+<img src="screenshot/screenshot1.jpg" alt="Landing Page" style="width:250px;" />
+<img src="screenshot/screenshot2.jpg" alt="Login Page" style="width:250px;" />
+<img src="screenshot/screenshot3.jpg" alt="Registeration Page" style="width:250px;" />
+<img src="screenshot/screenshot4.jpg" alt="Home Page" style="width:250px;" />
+<img src="screenshot/screenshot5.jpg" alt="Message Page" style="width:250px;" />
+<img src="screenshot/screenshot6.jpg" alt="Individual Message Page" style="width:250px;" />
+<img src="screenshot/screenshot7.jpg" alt="Discover Page" style="width:250px;" />
+<img src="screenshot/screenshot8.jpg" alt="Network Page" style="width:250px;" />
 
-![Login Page](screenshot/screenshot2.jpg)
-
-![Registeration Page](screenshot/screenshot3.jpg)
-
-![Home Page](screenshot/screenshot4.jpg)
-
-![Message Page](screenshot/screenshot5.jpg)
-
-![Individual Message Page](screenshot/screenshot6.jpg)
-
-![Discover Page](screenshot/screenshot7.jpg)
-
-![Network Page](screenshot/screenshot8.jpg)
